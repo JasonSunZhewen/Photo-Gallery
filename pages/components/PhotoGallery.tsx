@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import styles from './../../styles/photo.module.css';
 
 interface PhotoProps {
   id: number;
@@ -61,16 +62,16 @@ const PhotoGallery: React.FC = () => {
   }, [loading, hasMore]);
 
   return (
-    <div className="photo-gallery">
+    <div className={styles.photo_gallery}>
       {photos.map((photo) => (
-        <div key={photo.id} className="photo-item">
+        <div key={photo.id} className={styles.photo_item}>
           <img src={photo.url} alt={photo.url} />
         </div>
       ))}
 
       {loading && <div>Loading more images...</div>}
 
-      <div ref={observer} className='hidden-div'></div>
+      <div ref={observer} className={styles.hidden_div}></div>
     </div>
   );
 };
